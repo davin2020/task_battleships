@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  	<!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"> -->
+
+	<!-- All the Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Merienda+One&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- normal style sheet -->
+	<link rel="stylesheet" href="style.css">
+	<!-- snowing effect css -->
+	<link id="snow_theme" rel="stylesheet" type="text/css" href="" />
+
+	<script>
+        function toggleSnow() {
+            var theme = document.getElementById('snow_theme');
+            // Change the value of href attribute to change the css sheet to the snowing effect
+            if (theme.getAttribute('href') == 'snow.css') {
+                theme.setAttribute('href', '');
+            } else {
+                theme.setAttribute('href', 'snow.css');
+            }
+        }
+    </script>
+
+  <title>Random Quotes Template</title>
+</head>
+
+<body onload="getRandomQuote()">
+
+<div class="background"></div>
+
+	<h1>Random Quotes Template</h1>
+	<div class="main">
+
+		<div class="container">
+
+			<div class="frame">
+				<div class="frame_inner">
+					  	<p id="userQuote" class="quote font_merienda"></p>
+				</div>
+			</div>
+
+			<div class="frame">
+				<div class="frame_inner">
+				  	<div class="pic_container">
+				  		<img id="userImage" class="picture">
+				  	</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="button_container">
+			<button name="getQuote" id="getQuote">Get Quote</button>
+
+			<!-- <button onclick="toggleSnow()">Let it Snow!</button> -->
+			<div class="button_container_snow">
+				<label for="snow_toggle">
+					<input class="toggle" type="checkbox" id="snow_toggle" onclick="toggleSnow()">
+				Let&nbspit&nbspSnow!</label> 
+        
+        <!-- other frames to try 
+			  <img src="pictures\Picture-Frame-Arvin61r58.svg" id="userImage" class="picture"> -->
+        
+			</div>
+		</div>
+
+  	</div>
+
+  	<script type="text/javascript" src="script.js"></script>
+	<!--   	
+    <script>
+  	window.onload = function exampleFunction() {
+            console.log('The Script will load now.');
+        }
+    </script> -->
+  
+  <div class="footer">
+    Template Created by <a href="https://davin2020.github.io/">Davin</a>
+  </div>
+
+<!-- Need 50 snowflakes for the Snowing Effect stylesheet -->
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+<div class="snowflake"></div>
+
+</body>
+</html>
