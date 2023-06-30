@@ -26,6 +26,10 @@
                 theme.setAttribute('href', 'snow.css');
             }
         }
+
+  //       for (let index = 0; index < taskArray.length; index++) {
+		//     console.log(taskArray[index]);
+		// }
     </script>
 
   <title>Random Quotes Template</title>
@@ -34,6 +38,26 @@
 <body onload="getRandomQuote()">
 
 <div class="background"></div>
+
+<h1>Task Battleships</h1>
+	<div class="tasklist">
+		Task List
+		<div class="frame_inner">
+			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
+			<div id="allTasks">Alltasks</div>
+			  	<p id="userList" class="quote font_merienda"></p>
+		</div>
+
+
+		<div class="button_container_list">
+
+			<button class="button_main" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Battleship Tasks</button>
+
+		</div>
+
+	</div>
+
+<hr>
 
 	<h1>Random Quotes Template</h1>
 	<div class="main">
@@ -57,7 +81,7 @@
 		</div>
 
 		<div class="button_container">
-			<button name="getQuote" id="getQuote">Get Quote</button>
+			<button class="button_main" name="getQuote" id="getQuote" >Get Quote</button>
 
 			<!-- <button onclick="toggleSnow()">Let it Snow!</button> -->
 			<div class="button_container_snow">
