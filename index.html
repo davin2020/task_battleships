@@ -35,150 +35,87 @@
   <title>Task Battleships - Community Coworking</title>
 </head>
 
-<body onload="getRandomQuote()">
+<!-- <body onload="getRandomQuote()"> -->
+
+	
 
 <div class="background"></div>
 
-<h1>Task Battleships</h1>
-	<div class="tasklist">
 
-		<h2>Add New Task </h2>
+	<div class="taskArea">
+		<h1>Task Battleships</h1>
+
+		<h2>Part 1 - Add New Tasks</h2>
+		<p>Add the tasks that you want to appear in your Batthship Grid.</p>
+		<p>If you enter less than 15 tasks, "empty" tasks will be added, which can represent your main or ongoing project.</p>
+		<p>When you have finished adding tasks, goto Part 2 to load the tasks into the grid.</p>
+		<!-- <p>When you have finished adding tasks, use Part 2 to load the tasks into the grid, where they will appear as ? so you wont know what task is under what square until you click it - and then you have to do it!</p> -->
 		<div class="frame_tasks">
 			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
-			<p> NEW </p>
+			
+		    <div class="form_container">
+			    <form action="javascript:addNewTask();" method="post">
+			    	<label for="newTask">New Task:</label>
+			        <input class="input_field" type="text" name="newTask" id="newTask">
+			        <button class="button_add_tasks" id="addTaskButton" type="submit">Add Task to List</button>
+			    </form>
+			</div>
+
+			<!-- <div class="listTasks"> -->
+			<div class="form_container">
+				<!-- todo later - show hide tasks with twistie -->
+			    <ol id="taskList">
+					<li >existing tasks will appear here </li>
+				</ol>
+			</div>
+			<!-- </div> -->
+
 
 		</div>
 
-		<h2>Task Battleship List</h2>
+
+		<h2>Part 2 - Load Task Battleship Grid</h2>
+		<p>Click the "Shuffle and Load" button to load the above tasks into the battleship grid - once loaded, you can't add more tasks.</p>
+		<p>Then click each ? square to reveal the hidden task, which has an orange background to indicate "Work in Progress".</p>
+		<p>Once you have completed a task, click it again to change the backgroun colour to green to indicate a "Completed" task - Congrats!</p>
+		<p>CAUTION - If you refresh the website or click the "Shuffle" button again, you will lose the current status of your tasks (ie orange or green) and have to start over.</p>
+
 		<div class="button_container_tasks">
-			<button class="button_load_tasks" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Battleship Tasks</button>
+			<!-- <button class="button_load_tasks" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Battleship Tasks</button> -->
+			<button class="button_load_tasks" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Tasks into Battleship Grid</button>
 		</div>
 
-		<p>Flex Tasks</p>
-		<div class="frame_all_tasks" id="allTasks">
-			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
-			<!-- <div id="allTasks">Alltasks</div> -->
-		</div>
 
-		<p>Flex Grid Tasks</p>
-		<div class="parent_grid_all_tasks" id="allTasks2">
+		<!-- <p>Flex Grid Tasks</p> -->
+		<!-- diff  option of  7 col grid  parent_grid_all_tasks_7 -->
+		<div class="parent_grid_all_tasks_5" id="allTasks2">
 			<!-- using flex grid -->
 		</div>
-		
+		<br>
+		<p>Once you have done all the tasks, Refresh the website to start again!</p>
 
+
+		<!-- <p>Flex Tasks</p> -->
+		<!-- <div class="frame_all_tasks" id="allTasks2"> -->
+			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
+			<!-- <div id="allTasks">Alltasks</div> -->
+		<!-- </div> -->
+	
 	</div>
 
 <br>
-<br>
-<hr>
 
+<body onload="showExistingTaskList()">
 
-
-
-
-
-	<h1>Random Quotes Template</h1>
-	<div class="main">
-
-		<div class="container">
-
-			<div class="frame">
-				<div class="frame_inner">
-					  	<p id="userQuote" class="quote font_merienda"></p>
-				</div>
-			</div>
-
-			<div class="frame">
-				<div class="frame_inner">
-				  	<div class="pic_container">
-				  		<img id="userImage" class="picture">
-				  	</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="button_container">
-			<button class="button_main" name="getQuote" id="getQuote" >Get Quote</button>
-
-			<!-- <button onclick="toggleSnow()">Let it Snow!</button> -->
-			<div class="button_container_snow">
-				<label for="snow_toggle">
-					<input class="toggle" type="checkbox" id="snow_toggle" onclick="toggleSnow()">
-				Let&nbspit&nbspSnow!</label> 
-        
-        <!-- other frames to try 
-			  <img src="pictures\Picture-Frame-Arvin61r58.svg" id="userImage" class="picture"> -->
-        
-			</div>
-		</div>
-
-  	</div>
 
   	<script type="text/javascript" src="script.js"></script>
-	<!--   	
-    <script>
-  	window.onload = function exampleFunction() {
-            console.log('The Script will load now.');
-        }
-    </script> -->
+
   
   <div class="footer">
-    Template Created by <a href="https://davin2020.github.io/">Davin</a>
+    Website Created by <a href="https://davin2020.github.io/">Davin</a>
   </div>
 
-<!-- Need 50 snowflakes for the Snowing Effect stylesheet -->
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
 
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
-<div class="snowflake"></div>
 
 </body>
 </html>
