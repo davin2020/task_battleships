@@ -9,12 +9,38 @@ body {
 	font-family: verdanna, 'Arial', sans-serif;
 	font-size: 1.2rem;
 	line-height: 1.4rem;
-	color: #f3f370;
+	color: black;
 	background-size: contain;
 	background-repeat: repeat;
 	background-color: #9bbbf2;
 	/* other blues, darker 7ca8f4 lighter 9bbbf2*/
 }
+
+label {
+	display: inline-block;
+	text-align: left;
+	width: 120px;
+	font-weight: 600;
+}
+
+.disclaimer {
+	font-style: italic;
+	font-size: 1rem;
+}
+
+.taskArea {
+	margin: 0 20px;
+}
+
+.battlegrid {
+	border: 2px dotted black;
+}
+
+.input_field{
+	padding: 5px;
+	font-size: 1.2rem;
+}
+
 
 /*colors yellow text f3f370 - change h1 text if snow option is on */
 h1 {
@@ -22,6 +48,7 @@ h1 {
 	font-size: 2.8rem;
 	line-height: 2.5rem;
 	color: rebeccapurple;
+	margin-bottom: 20px;
 }
 @media screen and (max-width: 600px) {
 	h1 {
@@ -40,20 +67,66 @@ h2 {
 	text-align: center;
 	/*font-weight: 600;*/
 	font-size: 2.2rem;
+	color: rebeccapurple;
 }
 
 p {
 	text-align: center;
 }
 
-button {
+.button_main {
 	padding: 20px 60px;
 	margin: 10px;
 	font-size: 1.4rem;
 	font-weight: 600;
-	background-color: #f2f28c;
+	background-color: white;
 	border-radius: 	20px;
+	/*margin-top: 20px;*/
 }
+
+/*align center? */
+.button_load_tasks {
+	padding: 20px 40px;
+	margin: 10px;
+	font-size: 1.3rem;
+	font-weight: 600;
+	background-color: white;
+	border-radius: 	20px;
+	margin-bottom: 20px;
+}
+
+/*refactor this later*/
+.button_add_tasks {
+	padding: 10px 20px;
+	margin: 10px;
+	font-size: 1.3rem;
+	font-weight: 600;
+	background-color: white;
+	border-radius: 	20px;
+	margin-bottom: 20px;
+}
+
+.button_task {
+	min-width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	/*margin: 5px;*/
+	font-size: 1.4rem;
+	font-weight: 600;
+	background-color: lightyellow;
+}
+.button_task:hover {
+	cursor: pointer;
+}
+
+/*.button_grid_task {
+	min-width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	background-color: lightyellow;
+}*/
 
 .button_container {
 	width: auto;
@@ -66,8 +139,12 @@ button {
 	padding: 10px;
 	/*flex-basis: sp*/
 	justify-content: space-evenly;
-
 }
+
+.button_container_tasks {
+	text-align: center;
+}
+
 .button_container_snow {
 	/*width: 300px;*/
 	border: 2px solid black;
@@ -180,31 +257,44 @@ div {
 	text-align: center;
 }
 
-.frame_inner {
+.form_container {
+	display: flex;
+  	justify-content: center;
+	/*border: 2px solid purple;*/
+	/*padding: 10px;*/
+}
+
+.frame_tasks {
+	border: 2px solid purple;
+	margin-bottom: 40px;
+}
+
+.frame_all_tasks {
 	/* cant restrict text too much */
 	/*width: 40%;*/
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 400px;
+	height: 200px;
+	flex-wrap: wrap;
+	/*margin-bottom: 20px;*/
 }
 
-@media screen and (max-width: 700px) {
-	.child {
-		width: 45%;
-	}
+/* static grid of 5x3 */
+.parent_grid_all_tasks_5{
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	border: 2px solid purple;
+	margin: 10px 20px;
+	/* need below so child task items dont overflow parent - but hidden means u cant see the task text! */
+	overflow: auto;
+	min-height: 320px;
 }
-@media screen and (max-width: 550px) {
-	.frame_inner {
-		height: 350px;
-	}
-}
-@media screen and (max-width: 550px) {
-	.frame_inner {
-		height: 300px;
-	}
-}
+
 
 .footer {
 	text-align: center;
@@ -219,122 +309,4 @@ div {
 		margin-top: 10px;
 	}
 }
-.pic_container {
-	display: flex;
-  	justify-content: center;
-  	padding: 10px 0;
-  	/*height: 400px;*/
-  	align-items: center;
-}
 
-.picture {
-	width: 100%;
-    /*keyword Contain makes it fit within its parent while keeping proportions*/
-    object-fit: contain;
-    padding: 10px;
-    max-height: 450px;
-}
-@media screen and (max-width: 700px) {
-	.picture {
-		width: 100%;
-		padding: 0;
-	}
-}
-
-.rotate180 {
-	transform: rotate(90deg);
-}
-
-
-/* example https://codepen.io/dudleystorey/pen/yyZpeX */
-
-/* When four positions are specified, they create slices measured from the top, right, bottom, and left in that order (clockwise). 
-Re-check this after combinging w MQ branch
-*/
-.frame {
-  border-image: url(images/OrnatePictureFramePlain.svg) 390 340 387 342 stretch stretch; 
-  border-color: #f4be52;
-  /*inset outset ridge solid */
-  border-style: outset;
-  border-width: 50px;
-  display: block;
-  /* need this to constrain as its now a partent of frame_inner div */
-  width: 40%;
-  height: auto;
-  background-color: rebeccapurple;
-  margin: 0 auto;
-  /* need this here as its paretn of frame_inner in order to verically center quote*/
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 700px) {
-	.frame {
-		width: 45%;
-		border-width: 30px;
-	}
-}
-
-/* CLASSES IM USING COS THEY WORK 
-frame_inner frame
-*/
-
-
-/* Toggle Switch for Snowoing Effect - TODO find where I got code from & credit */
-.toggle {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 62px;
-  height: 32px;
-  display: inline-block;
-  position: relative;
-  border-radius: 50px;
-  overflow: hidden;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: #707070;
-  transition: background-color ease 0.3s;
-  /*margin: 0 auto;*/
-  /*to align text vertically w label must wrap chekcbox in label tags! */
-  display: inline-block;
-  vertical-align: middle;
-  bottom: 1px;
-}
-
-.toggle:before {
-  content: "on off";
-  display: block;
-  position: absolute;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  background: #fff;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  font: 10px/28px Helvetica;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-indent: -22px;
-  word-spacing: 37px;
-  color: #fff;
-  text-shadow: -1px -1px rgba(0,0,0,0.15);
-  white-space: nowrap;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
-}
-
-/* green #4CD964 */
-.toggle:checked {
-  background-color: rebeccapurple;
-}
-
-.toggle:checked:before {
-  left: 32px;
-}
-
-label {
-	display: block;
-}
