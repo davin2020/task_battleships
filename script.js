@@ -1,10 +1,5 @@
 
 let taskArray = [
-	"feed dog",
-	"dishes",
-	"finish report",
-	"laundry",
-	"commit code"
 ]
 
 function showExistingTaskList() {
