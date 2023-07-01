@@ -26,7 +26,8 @@ function printTasks() {
 		    let nameId = 'getTask' + index;
 
 		    // result += `<li>${item}</li>`;
-		    str += `<button class="button_ship" name="${nameId}" id="${nameId}" >blank</button>` ; 
+		    //should they say 'Blank'? could show index here, but hard to match on it to then show task text
+		    str += `<button class="button_task" name="${nameId}" id="${nameId}" >?</button>` ; 
 		    // str += '<button name="'nameId'" id="getTask' + index + '" >' + taskArray[index] + '</button>' ; 
 		    
 		    // str += '<button name="getTask' + index + '" id="getTask' + index + '" >' + taskArray[index] + '</button>' ; 
@@ -35,7 +36,10 @@ function printTasks() {
 		    // <button name="getTask" id="getTask" >taskArray[index]</button> 
 	}
 	// updateElementWithContent("userList", taskArray[index])
-	updateElementWithContent("allTasks", str)
+	
+	// cant update both sets as ids are unique and likely only first matching one is returned!
+	// updateElementWithContent("allTasks", str)
+	updateElementWithContent("allTasks2", str)
 	//aboev sets value of string, only then can i add listeners!
 	addListeners();
 }
@@ -49,11 +53,20 @@ function addListeners() {
 		// print(item) - this turns on browsers printing feature
 		item.addEventListener("click", function() {
 			console.log('added listener - task  name id ');
-			item.textContent = taskArray[index];
-			// item.hidden = false;
-			item.style.backgroundColor ="green"
-			//make things visible
-		  	// printTasks();
+			// on first click, show task text
+			console.log("item.textContent " + item.textContent);
+			// BUG why does button move when i click it? cos going from null text to string in text changes something
+			// but if i show the index number, how to match on it?
+			if (item.textContent == "?") {
+				// adding content to empty-string button makes whole button  MOVE 
+				item.textContent = taskArray[index];
+				item.style.backgroundColor ="orange";
+			}
+			//otherwsie mark task as done using green color
+			else {
+				item.style.backgroundColor ="green";
+			}
+
 		});
 	}
 }
@@ -78,6 +91,10 @@ function shuffle(array) {
 
   return array;
 }
+
+
+
+
 
 
 

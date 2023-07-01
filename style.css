@@ -51,17 +51,43 @@ p {
 	margin: 10px;
 	font-size: 1.4rem;
 	font-weight: 600;
-	background-color: #f2f28c;
+	background-color: white;
 	border-radius: 	20px;
+	/*margin-top: 20px;*/
 }
 
-.button_ship {
+/*align center? */
+.button_load_tasks {
 	padding: 20px 60px;
-	margin: 5px;
+	margin: 10px;
 	font-size: 1.4rem;
 	font-weight: 600;
-	background-color: gray;
+	background-color: white;
+	border-radius: 	20px;
+	margin-bottom: 20px;
 }
+
+.button_task {
+	min-width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	/*margin: 5px;*/
+	font-size: 1.4rem;
+	font-weight: 600;
+	background-color: lightyellow;
+}
+.button_task:hover {
+	cursor: pointer;
+}
+
+/*.button_grid_task {
+	min-width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	background-color: lightyellow;
+}*/
 
 .button_container {
 	width: auto;
@@ -74,8 +100,12 @@ p {
 	padding: 10px;
 	/*flex-basis: sp*/
 	justify-content: space-evenly;
-
 }
+
+.button_container_tasks {
+	text-align: center;
+}
+
 .button_container_snow {
 	/*width: 300px;*/
 	border: 2px solid black;
@@ -186,6 +216,28 @@ div {
 
 .main {
 	text-align: center;
+}
+
+.frame_all_tasks {
+	/* cant restrict text too much */
+	/*width: 40%;*/
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	/*margin-bottom: 20px;*/
+}
+
+/*grid is currnetly static and only 3x3 */
+.parent_grid_all_tasks {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	border: 2px solid blue;
+	margin: 10px 20px;
 }
 
 .frame_inner {

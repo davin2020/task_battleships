@@ -32,7 +32,7 @@
 		// }
     </script>
 
-  <title>Random Quotes Template</title>
+  <title>Task Battleships - Community Coworking</title>
 </head>
 
 <body onload="getRandomQuote()">
@@ -41,23 +41,41 @@
 
 <h1>Task Battleships</h1>
 	<div class="tasklist">
-		Task List
-		<div class="frame_inner">
+
+		<h2>Add New Task </h2>
+		<div class="frame_tasks">
 			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
-			<div id="allTasks">Alltasks</div>
-			  	<p id="userList" class="quote font_merienda"></p>
-		</div>
-
-
-		<div class="button_container_list">
-
-			<button class="button_main" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Battleship Tasks</button>
+			<p> NEW </p>
 
 		</div>
+
+		<h2>Task Battleship List</h2>
+		<div class="button_container_tasks">
+			<button class="button_load_tasks" name="getTask" id="getTask" onclick="printTasks()">Shuffle and Load Battleship Tasks</button>
+		</div>
+
+		<p>Flex Tasks</p>
+		<div class="frame_all_tasks" id="allTasks">
+			<!-- this needs to eb an array of items! otherwise each text string overwite teh last item! -->
+			<!-- <div id="allTasks">Alltasks</div> -->
+		</div>
+
+		<p>Flex Grid Tasks</p>
+		<div class="parent_grid_all_tasks" id="allTasks2">
+			<!-- using flex grid -->
+		</div>
+		
 
 	</div>
 
+<br>
+<br>
 <hr>
+
+
+
+
+
 
 	<h1>Random Quotes Template</h1>
 	<div class="main">
