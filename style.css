@@ -21,6 +21,8 @@ label {
 	text-align: left;
 	width: 120px;
 	font-weight: 600;
+	/*to help w mobinle screen MQ*/
+	margin:	10px;
 }
 
 .disclaimer {
@@ -30,7 +32,11 @@ label {
 
 .taskArea {
 	margin: 0 20px;
+	width: auto;
+	text-align: center;
 }
+/* try container class isntead? */
+
 
 .battlegrid {
 	border: 2px dotted black;
@@ -52,13 +58,13 @@ h1 {
 }
 @media screen and (max-width: 600px) {
 	h1 {
-		font-size: 2.2rem;
+		font-size: 2.4rem;
 		margin: 10px 0;
 	}
 }
 @media screen and (max-width: 450px) {
 	h1 {
-		font-size: 1.8rem;
+		font-size: 2rem;
 		margin: 10px 0;
 	}
 }
@@ -69,20 +75,22 @@ h2 {
 	font-size: 2.2rem;
 	color: rebeccapurple;
 }
+@media screen and (max-width: 450px) {
+	h2 {
+		font-size: 1.8rem;
+		margin: 15px 0;
+		line-height: 1.8rem;
+	}
+}
+
+/*might help w alsing label  input button on form ?
+justify-content: space-evenly;
+*/
 
 p {
 	text-align: center;
 }
 
-.button_main {
-	padding: 20px 60px;
-	margin: 10px;
-	font-size: 1.4rem;
-	font-weight: 600;
-	background-color: white;
-	border-radius: 	20px;
-	/*margin-top: 20px;*/
-}
 
 /*align center? */
 .button_load_tasks {
@@ -94,8 +102,16 @@ p {
 	border-radius: 	20px;
 	margin-bottom: 20px;
 }
+@media screen and (max-width: 650px)  {}
+	.button_load_tasks {
+		padding: 10px 20px;
+		margin: 0px;
+	}
+}
 
 /*refactor this later*/
+/*BUG this style is no longer being noticed? why?
+RENAEMD it later nad its now working ok! */
 .button_add_tasks {
 	padding: 10px 20px;
 	margin: 10px;
@@ -103,9 +119,19 @@ p {
 	font-weight: 600;
 	background-color: white;
 	border-radius: 	20px;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 }
 
+.button_add_task {
+	padding: 10px 20px;
+	margin: 10px;
+	font-size: 1.3rem;
+	font-weight: 600;
+	background-color: white;
+	border-radius: 	20px;
+}
+
+/*thihs exists in script file */
 .button_task {
 	min-width: 200px;
 	min-height: 100px;
@@ -128,41 +154,15 @@ p {
 	background-color: lightyellow;
 }*/
 
-.button_container {
-	width: auto;
-	margin: 10px;
-	display: flex;
-	position: relative;
-	/*justify-content: center;*/
-	/*border: 1px dashed red;*/
-	text-align: center;
-	padding: 10px;
-	/*flex-basis: sp*/
-	justify-content: space-evenly;
-}
 
-.button_container_tasks {
+.button_container_shuffle_tasks {
 	text-align: center;
 }
 
-.button_container_snow {
-	/*width: 300px;*/
-	border: 2px solid black;
-	padding: 20px;
-	margin: 10px;
-	font-size: 1.4rem;
-	font-weight: 600;
-	background-color: white;
-	border-radius: 	20px;
-	color: black;
-}
+
 
 @media screen and (max-width: 500px) {
 	button {
-		padding: 10px;
-		font-size: 1rem;
-	}
-	.button_container_snow {
 		padding: 10px;
 		font-size: 1rem;
 	}
@@ -171,49 +171,18 @@ p {
 	button {
 		padding: 5px 10px;
 	}
-	.button_container_snow {
-		padding: 5px;
-	}
 }
 
 /* yellow light f2f28c */
 
-.quote {
-	/*original size 3rem with line height 3.6 rem*/
-	font-size: 2.6rem;
-	line-height: 3.2rem;
-	font-style: italic;
-	/*margin: 0 20px 0 10px;*/
-	/* need to shift text to left as its italic so appears closer to right edge of parent */
-	margin: 0 6px 0 4px;
-	/*overflowing atm, coudl try hidden optino or add MQ! */
-}
 
-/*when width is UNDER 550 ie max=under, and min=over */
-@media screen and (max-width: 1000px) {
-	.quote {
-		font-size: 2.4rem;
-		line-height: 3rem;
-	}
-}
-@media screen and (max-width: 850px) {
-	.quote {
-		font-size: 2rem;
-		line-height: 2.5rem;
-	}
-}
-@media screen and (max-width: 550px) {
-	.quote {
-		font-size: 1.4rem;
-		line-height: 2rem;
-		margin: 0;
-	}
-}
-@media screen and (max-width: 400px) {
-	.quote {
-		font-size: 1.2rem;
-	}
-}
+
+/*when width is UNDER 550 ie max=under, and min=over 
+@media screen and (max-width: 1000px) 
+had many Quote MQs here
+
+*/
+
 
 .font_courgette {
 	font-family: 'Courgette';
@@ -234,6 +203,7 @@ div {
 	/*border: 1px dashed green;*/
 }
 
+/*no used for tasks?*/
 /* need to center containner within body!*/
 .container {
 	width: auto;
@@ -282,19 +252,32 @@ div {
 }
 
 /* static grid of 5x3 */
-.parent_grid_all_tasks_5{
+.parent_grid_all_tasks {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 	border: 2px solid purple;
-	margin: 10px 20px;
+	margin: 10px;
 	/* need below so child task items dont overflow parent - but hidden means u cant see the task text! */
 	overflow: auto;
 	min-height: 320px;
 }
-
+@media screen and (max-width: 750px) {
+	.parent_grid_all_tasks {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		margin: 5px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.parent_grid_all_tasks {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(7, 1fr);
+		margin: 5px;
+	}
+}
 
 .footer {
 	text-align: center;
@@ -309,4 +292,3 @@ div {
 		margin-top: 10px;
 	}
 }
-
