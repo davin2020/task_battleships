@@ -4,38 +4,32 @@ let taskArray = [
 
 function showExistingTaskList() {
 	// if u DONT put quotes around the printed string  below, it wil literally print out the whole function!
-	console.log("showExistingTaskList");
+	// console.log("showExistingTaskList");
 	taskListString = "";
 	for (let index = 0; index < taskArray.length; index++) {
 		let nameId = 'getTask' + index;
 		// taskListString += `<li name="${nameId}" id="${nameId}" >${taskArray[index]} </li>` ; 
 		taskListString += `<li>${taskArray[index]}</li>` ; 
 	}
-	console.log(taskListString);
+	// console.log(taskListString);
 	updateElementWithContent("taskList", taskListString);
 }
 
-//this wont be called as getTask doenst have ID here
-let itemClicked = document.getElementById("getTask");
-newRandomQuote.addEventListener("click", function() {
-	console.log('CLICKED get Task');
-  	printTasks();
-});
 
 
 function printTasks() {
 	document.querySelector('#addTaskButton').disabled = true;
 	let str =""
-	console.log("everyday im shuffling...")
-	console.log(taskArray.length);
+	// console.log("everyday im shuffling...")
+	// console.log(taskArray.length);
 	// 14 really gives us 15 square
 	while (taskArray.length <= 14) {
 		taskArray.push("[empty]");
 	}
 	shuffle(taskArray);
 	for (let index = 0; index < taskArray.length; index++) {
-			console.log("..printTask")
-		    console.log(taskArray[index]);
+			// console.log("..printTask")
+		    // console.log(taskArray[index]);
 		    let nameId = 'getTask' + index;
 		    //should they say 'Blank'? could show index here, but hard to match on it to then show task text
 		    str += `<button class="button_task" name="${nameId}" id="${nameId}" >?</button>` ; 
@@ -74,21 +68,27 @@ function addListeners() {
 	}
 }
 
-	
+
 //  this is better but page keep on refreshing! adn x doesnt have value
+// if input field is empty, dont add item to array
 function addNewTask() {
-	console.log("addNewTask");
+	// console.log("addNewTask");
 	let newTask = document.getElementById("newTask");
-	console.log(newTask);
-	let x = newTask.value;
-	console.log('ADD...found new task ' + x);
-	taskArray.push(x)
-	showExistingTaskList();
-	newTask.value = "";
-	// dont  let user add more than 15 tasks, so they can all fit in grid
-	if (taskArray.length >= 15) {
-		// refactor - use querySelector instead of getElementById
-		document.querySelector('#addTaskButton').disabled = true;
+	// console.log(newTask);
+	let newTaskText = newTask.value;
+	if (newTaskText.length == 0) {
+		window.alert("Looks like you're trying to enter an empty task...");
+	}
+	else {
+		// console.log('ADD...found new task ' + newTaskText);
+		taskArray.push(newTaskText)
+		showExistingTaskList();
+		newTask.value = "";
+		// dont  let user add more than 15 tasks, so they can all fit in grid
+		if (taskArray.length >= 15) {
+			// refactor - use querySelector instead of getElementById
+			document.querySelector('#addTaskButton').disabled = true;
+		}
 	}
 }
 
